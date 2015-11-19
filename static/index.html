@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css" >
+        <link type="text/css" rel="stylesheet" href="css/your-next-gig-base.css">
+        <script type="text/javascript" src="require-config.js"></script>
+        <script type="text/javascript" src="require.js"></script>
+    </head>
+    <title>Your Next Gig</title>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 header"></div>
+            </div>
+            <div class="row">
+                <div class="page-center">
+                    <div class="col-xs-12 application"></div>
+                        <script type="text/javascript">
+                            require(['jsx!js/app', 'react'], function (App, React) {
+                                var mount = document.getElementsByClassName('application')[0];
+                                var yng = new App({mount: mount});
+                            });
+                        </script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

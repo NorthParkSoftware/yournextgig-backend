@@ -1,0 +1,69 @@
+name:                yournextgig-backend
+version:             0.1.0.0
+synopsis:            Your next gig
+description:         Your next gig
+homepage:            http://github.com/m-arnold/yournextgig-backend#readme
+--license:             PublicDomain
+--license-file:        LICENSE
+author:              Michael Adlai Arnold
+author:              Karun Ramakrishnan <karun012@gmail.com>
+author:              Hal Arnold <halarnold2000@yahoo.com>
+maintainer:          karun012@gmail.com
+maintainer:          halarnold2000@yahoo.com
+maintainer:          michaelaarnold@gmail.com
+copyright:           MIT License
+category:            Software
+build-type:          Simple
+-- extra-source-files:
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib
+  build-depends:       base >= 4.7 && < 5
+  default-language:    Haskell2010
+
+executable yournextgig-backend-exe
+  hs-source-dirs:      app
+                       src
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base,
+                       scotty >=0.9.0,
+                       bytestring,
+                       text,
+                       http-types,
+                       github,
+                       mtl,
+                       wai,
+                       transformers,
+                       aeson,
+                       warp >=3.0,
+                       wai-middleware-static >=0.6
+                     , yournextgig-backend
+  default-language:    Haskell2010
+
+test-suite yournextgig-backend-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test, src
+  main-is:             Spec.hs
+  build-depends:       base,
+                       QuickCheck,
+                       hspec,
+                       aeson,
+                       bytestring,
+                       mtl,
+                       github,
+                       wai,
+                       wai-extra >=3,
+                       HUnit,
+                       scotty,
+                       http-types,
+                       transformers
+                     , yournextgig-backend
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/m-arnold/yournextgig-backend
